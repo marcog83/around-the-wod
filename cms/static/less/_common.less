@@ -1,0 +1,144 @@
+@import (less) "typicons.css";
+body{
+  overflow-y: scroll;
+}
+body, html {
+  font-family: 'Roboto', sans-serif;
+
+}
+
+.content-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.body-ctr {
+  padding: 0 16px;
+}
+fieldset {
+  background: lightcyan;
+  padding: 10px;
+}
+
+select,
+textarea,
+input {
+  width: 100%;
+  display: block;
+  border: 0;
+  padding: 7px;
+  margin: 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid silver;
+  background: lightcyan;
+  outline: none !important;
+}
+
+legend {
+  padding: 10px 0 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: gray;
+  span, button {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background: mediumseagreen;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+[data-json] {
+  display: none !important;
+}
+
+.fields--repeatable > div {
+  .js-delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background: indianred;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    flex-grow: 1;
+    width: 22px;
+    height: 22px;
+    border: none;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  display: flex;
+  align-items: center;
+
+}
+
+.field {
+  width: 100%;
+}
+
+textarea {
+  min-height: 150px;
+}
+
+.document-ctr {
+  display: flex;
+  align-items: center;
+  img {
+    width: 200px;
+  }
+}
+
+.relation-field {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+
+  .detail-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background: cornflowerblue;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    flex-grow: 1;
+    width: 22px;
+    height: 22px;
+    border: none;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
+[data-accordion-button] {
+  cursor: pointer;
+  user-select: none;
+}
+

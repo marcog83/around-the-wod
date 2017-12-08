@@ -1,0 +1,70 @@
+.entity {
+
+  border-top: 1px silver solid;
+  &:last-child {
+    border-bottom: 1px silver solid;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+  }
+  &__name {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  &__action {
+    margin-right: 4px;
+    &s {
+      display: flex;
+    }
+    &--btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px;
+      background: silver;
+      color: white;
+      border-radius: 50%;
+      font-size: 16px;
+      flex-grow: 1;
+
+      border: none;
+      &:hover {
+        transform: scale(1.1);
+      }
+      &.delete {
+        background: indianred;
+      }
+      &.edit {
+        background: mediumseagreen;
+      }
+    }
+  }
+
+}
+
+a.entity__action--btn.record__item {
+  margin-right: 5px;
+  color: white;
+}
+
+.record {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  &__item{
+
+    &.name{
+      margin-left:10px;
+    }
+  }
+  &s {
+    padding: 0 0 0 60px;
+  }
+  a {
+
+    text-decoration: none;
+    color: black;
+  }
+}

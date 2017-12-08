@@ -1,0 +1,9 @@
+<div class="field">
+    <fieldset>
+        {{#if label}}<legend>{{label}}</legend>{{/if}}
+        <input autocomplete="false"
+               {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}
+               {{#if readonly}}readonly{{/if}}
+               placeholder="scrivi qui..." name="{{name}}" type="text" value="{{value}}">
+    </fieldset>
+</div>

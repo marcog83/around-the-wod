@@ -1,0 +1,25 @@
+<div class="field">
+    <fieldset>
+        {{#if label}}
+            <legend>{{label}}</legend>{{/if}}
+        <div class="document-ctr" data-mediator="document-field">
+            <img class="js-img" src="{{value}}" alt="Image preview...">
+            <div class="img-ctr">
+                <div class="image-url-ctr {{#if value}}{{else}}hidden{{/if}}">
+
+
+                {{#if value}}
+
+                    <input class="js-img-url" type="text" readonly value="{{value}}" name="{{name}}">
+
+                {{/if}}
+                <a href="javascript:void(0);" title="Copy URL to Clipboard" class="js-copy">
+                    <span class="typcn typcn-clipboard"></span>
+                </a>
+                </div>
+                <input class="js-input"   autocomplete="off" type="file" name="{{name}}" accept="{{mimetype}}">
+
+            </div>
+             </div>
+    </fieldset>
+</div>

@@ -1,0 +1,37 @@
+.menu {
+  &-ctr {
+    position: relative;
+  }
+  a {
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  position: fixed;
+  width: 150px;
+  height: 100vh;
+  background: silver;
+
+  transform: translateX(-150px);
+  top: 68px;
+  left: 0;
+  transition: transform 0.5s ease-out;
+  z-index: 999991;
+  padding: 60px 20px 0;
+  &.opened {
+    transform: translateX(0);
+
+  }
+  &-trigger-btn {
+    position: fixed;
+    z-index: 999992;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    color: white;
+    font-size: 14px;
+    margin: 16px;
+    top: 0;
+    left: 0;
+  }
+}

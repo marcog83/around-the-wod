@@ -1,0 +1,41 @@
+<form name="{{recordId}}" method="post"
+      action="/cms/contents/save/{{entityId}}{{#if recordId}}/{{recordId}}{{/if}}"
+
+      enctype="multipart/form-data">
+    <header class="contents__header">
+        <h2 class="contents-title">{{name}}</h2>
+        <div class="actions">
+            <a class="back-btn" href="/cms/contents" title="torna ai contenuti">
+                <span class="typcn typcn-backspace">Back</span>
+
+            </a>
+            <button class="save-btn" type="submit" title="Salva le modifiche">
+                <span class="typcn typcn-export">Save</span>
+
+
+            </button>
+
+        </div>
+    </header>
+    <section class="contents">
+        <!--<input type="hidden" name="entityId" value="{{entityId}}">-->
+        <!--{{#if recordId}}-->
+            <!--<input type="hidden" name="recordId" value="{{recordId}}">-->
+        <!--{{/if}}-->
+        <div class="fields">
+            {{#fields}}
+                {{> field-builder this}}
+            {{/fields}}
+
+        </div>
+    </section>
+    <section class="seo-ctr" data-mediator="accordion">
+        <h2 class="seo__title" data-accordion-button>Configurazione SEO</h2>
+        <div class="fields seo-fields hidden" data-accordion-expand>
+            {{#seo.fields}}
+                {{> field-builder this}}
+            {{/seo.fields}}
+
+        </div>
+    </section>
+</form>

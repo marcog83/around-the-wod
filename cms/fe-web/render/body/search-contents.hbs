@@ -1,0 +1,38 @@
+<ul class="contents">
+    {{#each  entities}}
+        <li class="content">
+            <h2 class="entity__name">{{name}}</h2>
+            <ul class="content__actions">
+                <li>
+                    <a href="/cms/contents/new/{{_id}}">
+                        add new
+                    </a>
+                </li>
+                <li>
+                    <a href="/cms/contents/search/{{_id}}">
+                        search
+                    </a>
+                </li>
+            </ul>
+            <ul class="entities">
+                {{#each data}}
+                    <li class="entity">
+                        <a href="/cms/contents/{{id}}" class="entity__item">
+                            {{name}}
+                        </a>
+                        <ul class="entity__item content__actions entity__actions">
+                            <li>
+                                <button>edit</button>
+                            </li>
+                            <li>
+                                <button>delete</button>
+                            </li>
+                        </ul>
+                    </li>
+                {{/each}}
+            </ul>
+        </li>
+    {{/each }}
+
+
+</ul>

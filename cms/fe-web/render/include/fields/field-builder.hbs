@@ -1,0 +1,36 @@
+{{#switch type}}
+    {{#case "boolean" break=true}}
+        {{> boolean-field}}
+    {{/case}}
+    {{#case "date" break=true }}
+        {{> date-field}}
+    {{/case}}
+    {{#case "document" break=true }}
+        {{> document-field}}
+    {{/case}}
+    {{#case "html" break=true }}
+        {{> html-field}}
+    {{/case}}
+    {{#case "link" break=true }}
+        {{> link-field}}
+    {{/case}}
+    {{#case "number" break=true }}
+        {{> number-field}}
+    {{/case}}
+    {{#case "relation" break=true }}
+        {{> relation-field}}
+    {{/case}}
+    {{#case "repeatable" break=true }}
+        {{> repeatable-field}}
+    {{/case}}
+    {{#case "select" break=true }}
+        {{> select-field}}
+    {{/case}}
+    {{#case "text" break=true }}
+
+        {{> text-field}}
+    {{/case}}
+    {{#default}}
+
+    {{/default}}
+{{/switch}}
