@@ -5,7 +5,7 @@ const dbManager = require("./db-manager");
 
 module.exports = {
     find(collectionId, key, value){
-        var query = {};
+        const query = {};
         query[key] = value;
         return dbManager.find(collectionId, query);
     }

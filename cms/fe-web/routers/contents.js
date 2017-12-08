@@ -1,30 +1,10 @@
 const express = require('express');
 const ContentsManager = require('./manager/contents');
-const multer = require('multer');
-const multerPatch = require('./multer-patch');
-const path = require('path');
-const crypto = require('crypto');
+const UploadManager = require('../core/upload/upload-manager');
 
 const contentsManager = new ContentsManager();
-const {CLOUDINARY_URL}=require("../../properties");
-process.env.CLOUDINARY_URL=CLOUDINARY_URL;
-const cloudinary = require('cloudinary');
-const cloudinaryStorage = require('multer-storage-cloudinary');
-const storage = cloudinaryStorage({
-    cloudinary: cloudinary,
-    folder: 'folder-name',
-    allowedFormats: ['jpg', 'png'],
-    filename: function (req, file, cb) {
-        crypto.pseudoRandomBytes(16, function (err, raw) {
-            if (err) return cb(err);
-
-            cb(null, raw.toString('hex'))
-        })
-    }
-});
-
-const upload = multer({storage: storage});
 const router = express.Router();
+const upload=UploadManager();
 // define the detail route
 router.get('/', function (req, res) {
     contentsManager.entities().then(data => {

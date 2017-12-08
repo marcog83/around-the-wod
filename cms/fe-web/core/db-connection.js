@@ -1,14 +1,14 @@
 /**
  * Created by mgobbi on 03/08/2017.
  */
-var MongoClient = require('mongodb').MongoClient;
+const MongoClient = require('mongodb').MongoClient;
 const {DB_URL}=require("../../properties");
 
 
 
 
 
-var Deferred = function () {
+const Deferred = function () {
     let resolve, reject;
     let promise = new Promise((res, rej)=> {
         resolve = res;

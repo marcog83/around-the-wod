@@ -15,19 +15,14 @@
     "mongo-win": "cd mongo-db & \"C:/Program Files/MongoDB/Server/3.4/bin/mongod.exe\" --dbpath C:/Users/marcogobbi/WebstormProjects/joe-site/mongo-db",
     "mongo-win-office": "cd mongo-db & \"C:/Program Files/MongoDB/Server/3.4/bin/mongod.exe\" --dbpath C:/workspace/experiments/joe-site/mongo-db"
   },
-
   "author": "",
   "license": "ISC",
-
   "dependencies": {
     "body-parser": "^1.17.2",
     "cloudinary": "^1.9.0",
     "compression": "^1.7.0",
     "connect-ensure-login": "^0.1.1",
     "cookie-parser": "^1.4.3",
-    "crypto": "0.0.3",
-    "dropbox": "^2.5.7",
-    "dropbox-stream": "^1.0.5",
     "express": "^4.15.3",
     "express-form-post": "^1.4.0",
     "express-session": "^1.15.5",
@@ -52,7 +47,6 @@
     "clipboard": "^1.7.1",
     "convert-source-map": "^1.5.0",
     "each-async": "^1.1.1",
-    "glob": "^7.1.2",
     "mkdirp": "^0.5.1",
     "postcss-cli": "^4.1.0",
     "watchify": "^3.9.0"

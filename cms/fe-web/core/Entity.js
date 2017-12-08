@@ -128,21 +128,7 @@ class Entity {
                 return dbManager.save(this.id, _normalizedValues);
             });
 
-        // const promises = Object.keys(this._schema).map(key => {
-        //     return this._schema[key].save(_fieldsToSave[key]).then(value => {
-        //         return {
-        //             key,
-        //             value
-        //         }
-        //     })
-        // });
-        // return Promise.all(promises).then(response => {
-        //     const _normalizedValues = response.reduce((prev, {key, value}) => {
-        //         prev[key] = value;
-        //         return prev;
-        //     }, {});
-        //     return dbManager.save(this.id, _normalizedValues);
-        // });
+
 
     }
 
@@ -158,20 +144,7 @@ class Entity {
     schema() {
         return parseSchema(this._schema, "resolve", {}, {});
 
-        // const promises = Object.keys(this._schema).map(key => {
-        //     return this._schema[key].resolve().then(schema => {
-        //         return {
-        //             key,
-        //             schema
-        //         }
-        //     })
-        // });
-        // return Promise.all(promises).then(response => {
-        //     return response.reduce((prev, {key, schema}) => {
-        //         prev[key] = schema;
-        //         return prev;
-        //     }, {})
-        // });
+
     }
 
     getRelation() {

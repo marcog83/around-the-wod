@@ -3,11 +3,11 @@
  */
 const SRC_FOLDER = `${process.cwd()}/static-web/`;
 const DIST_FOLDER = `${process.cwd()}/dist/`;
-var INCLUDE_DIR = `${process.cwd()}/web/include/`;
-var DEFINITION_DIR = `${process.cwd()}/web/definition/`;
-var DATA_DIR = `${process.cwd()}/web/data/`;
-var BODY_DIR = `${process.cwd()}/web/body/`;
-var LAYOUT_DIR = `${process.cwd()}/web/layout/`;
+const INCLUDE_DIR = `${process.cwd()}/web/include/`;
+const DEFINITION_DIR = `${process.cwd()}/web/definition/`;
+const DATA_DIR = `${process.cwd()}/web/data/`;
+const BODY_DIR = `${process.cwd()}/web/body/`;
+const LAYOUT_DIR = `${process.cwd()}/web/layout/`;
 
 const getPath = (pattern) => {
     return id => {

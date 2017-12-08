@@ -1,22 +1,20 @@
 /**
  * Created by mgobbi on 07/07/2017.
  */
-var fs = require("fs");
-var path = require("path");
-var mkdirp = require("mkdirp");
-var glob = require("glob");
-var {DIST_FOLDER, dist, getDistFolder, CSS,   data} = require("./configuration");
-var crypto = require('crypto');
+const fs = require("fs");
+const path = require("path");
+const mkdirp = require("mkdirp");
+const glob = require("glob");
+const {DIST_FOLDER} = require("./configuration");
+const crypto = require('crypto');
 
-var chalk = require('chalk');
-var eachAsync = require('each-async');
-var convert = require('convert-source-map');
+
 const exists = function () {
-    var filepath = path.join.apply(path, arguments);
+    const filepath = path.join.apply(path, arguments);
     return fs.existsSync(filepath);
 };
 const isDir = function () {
-    var filepath = path.join.apply(path, arguments);
+    const filepath = path.join.apply(path, arguments);
     return exists(filepath) && fs.statSync(filepath).isDirectory();
 };
 function asset_path_regexp(asset_path) {
@@ -37,19 +35,19 @@ function getFiles(src) {
 
 
 function revFiles(config) {
-    var promises = config.src.map(src => {
+    const promises = config.src.map(src => {
         return getFiles(src).then(files => {
-            var filerev = {summary: {}};
+            const filerev = {summary: {}};
             files.filter(file => !isDir(file))
                 .forEach(file => {
 
-                    var hash = crypto.createHash(config.options.algorithm).update(fs.readFileSync(file)).digest('hex');
-                    var suffix = hash.slice(0, config.options.length);
-                    var ext = path.extname(file);
-                    var newName = [path.basename(file, ext), suffix, ext.slice(1)].join('.');
+                    const hash = crypto.createHash(config.options.algorithm).update(fs.readFileSync(file)).digest('hex');
+                    const suffix = hash.slice(0, config.options.length);
+                    const ext = path.extname(file);
+                    const newName = [path.basename(file, ext), suffix, ext.slice(1)].join('.');
 
-                    var dirname = path.dirname(file);
-                    var resultPath = path.resolve(dirname, newName);
+                    const dirname = path.dirname(file);
+                    const resultPath = path.resolve(dirname, newName);
                     fs.renameSync(file, resultPath);
                     filerev.summary[path.basename(file)] = {
                         renamed: newName,
@@ -64,12 +62,12 @@ function revFiles(config) {
     return Promise.all(promises).then(response => {
         return response.reduce((prev, summary) => Object.assign(prev, summary), {});
     }).then(summary => {
-        var assets = {};
+        const assets = {};
 
-        for (var filerev_path in summary) {
-            var src = filerev_path;// file_path_to_web_path( filerev_path, assets_root );
-            var dest = summary[filerev_path].renamed; //path.basename( grunt.filerev.summary[filerev_path] );
-            var regexp = asset_path_regexp(src);
+        for (const filerev_path in summary) {
+            const src = filerev_path;// file_path_to_web_path( filerev_path, assets_root );
+            const dest = summary[filerev_path].renamed; //path.basename( grunt.filerev.summary[filerev_path] );
+            const regexp = asset_path_regexp(src);
             assets[src] = {dest: dest, regexp: regexp};
         }
         return assets;
@@ -82,20 +80,19 @@ function replaceFiles(options, assets_paths) {
     function log_view_changes(view_src, changes) {
         if (changes.length > 0) {
             console.log('✔ ' + view_src);
-            for (var i in changes) {
+            for (let i in changes) {
                 console.log('  ' + changes[i]);
             }
         }
     }
 
     function replace_assets_paths_in_view(assets_paths, view_src, views_root) {
-        var view = fs.readFileSync(String(view_src)).toString();
-        var changes = [];
+        let view = fs.readFileSync(String(view_src)).toString();
+        const changes = [];
 
 
-        for (var asset_src in assets_paths) {
-            var asset_dest = assets_paths[asset_src].dest;
-            var changed = false;
+        for (let asset_src in assets_paths) {
+            const asset_dest = assets_paths[asset_src].dest;
 
             view = view.replace(assets_paths[asset_src].regexp, asset_dest);
             changes.push(asset_src + ' changed to ' + asset_dest);
@@ -109,10 +106,10 @@ function replaceFiles(options, assets_paths) {
     }
 
     const {assets_root, views_root = assets_root} = options;
-    var promises = options.src.map(src => {
+    const promises = options.src.map(src => {
         return getFiles(src).then(files => {
             files.forEach(function (view_src) {
-                var changes = replace_assets_paths_in_view(assets_paths, view_src, views_root);
+                const changes = replace_assets_paths_in_view(assets_paths, view_src, views_root);
                 log_view_changes(view_src, changes);
             });
         })
@@ -123,7 +120,7 @@ function replaceFiles(options, assets_paths) {
 };
 
 
-var config = {
+const config = {
     options: {
         algorithm: 'md5',
         length: 8
@@ -133,7 +130,7 @@ var config = {
 
     ]
 };
-var replace_options = {
+const replace_options = {
     assets_root: DIST_FOLDER
     , src: [`fe-web/render/include/stylesheet.hbs`]
 }
