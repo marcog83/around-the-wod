@@ -1,0 +1,64 @@
+@import "../../../../less/_variables";
+
+.nav-trigger {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 20px 21px;
+  z-index: 99;
+  background: @PURPLE-NAVY;
+  cursor: pointer;
+  transition: all .5s ease-out;
+  &:hover {
+    background: @GUNMETAL;
+  }
+  &__button {
+    display: block;
+    position: relative;
+    width: 18px;
+    height: 14px;
+    margin-left: 1px;
+    span {
+      width: 18px;
+      height: 2px;
+      position: absolute;
+
+      transform-origin: 0 50%;
+
+      transition-duration: 0.3s;
+      background: @LIGHT-RED-OCHRE;
+    }
+    span:nth-of-type(1) {
+      top: 0;
+      left: 0px;
+    }
+    span:nth-of-type(2) {
+      top: 6px;
+
+      opacity: 1
+    }
+    span:last-of-type {
+      bottom: 0;
+      left: 0
+    }
+
+  }
+  wod-menu[open] & {
+    background: transparent;
+    span:nth-of-type(1) {
+
+      transform: rotate(45deg)
+    }
+    span:nth-of-type(2) {
+
+      opacity: 0
+    }
+    span:last-of-type {
+      bottom: -1px;
+
+      transform: rotate(-45deg)
+    }
+  }
+
+}

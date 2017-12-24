@@ -127,228 +127,63 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-.page-transition .spinner-ctr {
-  display: block;
-}
-.spinner-ctr {
-  display: none;
-  margin-top: 15px;
-}
-.spinner {
-  margin: 0 auto;
-  width: 50px;
-  height: 40px;
-  text-align: center;
-  font-size: 10px;
-}
-.spinner > div {
-  background-color: #CCA684;
-  height: 100%;
-  width: 6px;
-  display: inline-block;
-  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
-  animation: sk-stretchdelay 1.2s infinite ease-in-out;
-}
-.spinner .rect2 {
-  -webkit-animation-delay: -1.1s;
-  animation-delay: -1.1s;
-}
-.spinner .rect3 {
-  -webkit-animation-delay: -1s;
-  animation-delay: -1s;
-}
-.spinner .rect4 {
-  -webkit-animation-delay: -0.9s;
-  animation-delay: -0.9s;
-}
-.spinner .rect5 {
-  -webkit-animation-delay: -0.8s;
-  animation-delay: -0.8s;
-}
-@-webkit-keyframes sk-stretchdelay {
-  0%,
-  40%,
-  100% {
-    -webkit-transform: scaleY(0.4);
-  }
-  20% {
-    -webkit-transform: scaleY(1);
-  }
-}
-@keyframes sk-stretchdelay {
-  0%,
-  40%,
-  100% {
-    transform: scaleY(0.4);
-    -webkit-transform: scaleY(0.4);
-  }
-  20% {
-    transform: scaleY(1);
-    -webkit-transform: scaleY(1);
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-.fadeIn,
-.menu-ctr:before {
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-}
-.animated,
-.menu-ctr:before {
-  -webkit-animation-duration: 0.5s;
-  animation-duration: 0.5s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-@keyframes slidein {
-  from {
-    transform: translateY(100px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-.slidein-05 {
-  animation-duration: 0.7s;
-  animation-fill-mode: both;
-  animation-name: slidein;
-}
-.slidein-05-01 {
-  animation-duration: 0.7s;
-  animation-delay: 0.1s;
-  animation-fill-mode: both;
-  animation-name: slidein;
-}
-.bg-image-ctr {
-  background-color: #422030;
-}
-.btn {
-  display: inline-block;
-  padding: 20px;
-  color: #1B0617;
-  font-weight: bold;
-  transition: color 0.4s ease-out;
-  background: rgba(204, 166, 132, 0.2);
-}
-.btn.line-effect i {
-  background: #C71F49;
-}
-.btn:hover {
-  color: #C71F49;
-}
-.line-1 i,
-.line-3 i {
+.nav-trigger {
   display: block;
   position: absolute;
-  height: 100%;
-  width: 0;
-  background: white;
-}
-.line-1 {
-  left: 0;
-  top: 0;
-}
-.line-1 i {
-  left: 0;
-  top: 0;
-  transition: width 0.2s ease-out 0.6s;
-}
-.line-2 {
-  top: 0;
-  right: 0;
-}
-.line-2 i {
-  top: 0;
-  left: 0;
-  transition: height 0.2s ease-out 0.4s;
-}
-.line-3 {
-  right: 0;
-  bottom: 0;
-}
-.line-3 i {
   right: 0;
   top: 0;
-  transition: width 0.2s ease-out 0.2s;
+  padding: 20px 21px;
+  z-index: 99;
+  background: #3d5a80;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
 }
-.line-4 {
-  bottom: 0;
-  left: 0;
+.nav-trigger:hover {
+  background: #293241;
 }
-.line-4 i {
-  bottom: 0;
-  left: 0;
-  transition: height 0.2s ease-out 0s;
-}
-.line-2 i,
-.line-4 i {
+.nav-trigger__button {
   display: block;
-  position: absolute;
-  width: 100%;
-  height: 0;
-  background: white;
-}
-.line-effect.brick-red .line-2 i,
-.line-effect.brick-red .line-4 i,
-.line-effect.brick-red .line-3 i,
-.line-effect.brick-red .line-1 i {
-  background: #C71F49;
-}
-.line-effect.tan .line-2 i,
-.line-effect.tan .line-4 i,
-.line-effect.tan .line-3 i,
-.line-effect.tan .line-1 i {
-  background: #CCA684;
-}
-.line-1,
-.line-3 {
-  width: 100%;
-  height: 2px;
-  background: transparent;
-  position: absolute;
-  z-index: 1;
-}
-.line-2,
-.line-4 {
-  height: 100%;
-  width: 2px;
-  background: transparent;
-  position: absolute;
-  z-index: 1;
-}
-.line-effect {
   position: relative;
+  width: 18px;
+  height: 14px;
+  margin-left: 1px;
 }
-.line-effect:hover .line-1 i {
-  width: 100%;
-  height: 100%;
-  transition: width 0.2s ease-out;
+.nav-trigger__button span {
+  width: 18px;
+  height: 2px;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition-duration: 0.3s;
+  background: #ee6c4d;
 }
-.line-effect:hover .line-2 i {
-  width: 100%;
-  height: 100%;
-  transition: height 0.2s ease-out 0.2s;
+.nav-trigger__button span:nth-of-type(1) {
+  top: 0;
+  left: 0px;
 }
-.line-effect:hover .line-3 i {
-  width: 100%;
-  height: 100%;
-  transition: width 0.2s ease-out 0.4s;
+.nav-trigger__button span:nth-of-type(2) {
+  top: 6px;
+  opacity: 1;
 }
-.line-effect:hover .line-4 i {
-  width: 100%;
-  height: 100%;
-  transition: height 0.2s ease-out 0.6s;
+.nav-trigger__button span:last-of-type {
+  bottom: 0;
+  left: 0;
+}
+wod-menu[open] .nav-trigger {
+  background: transparent;
+}
+wod-menu[open] .nav-trigger span:nth-of-type(1) {
+  transform: rotate(45deg);
+}
+wod-menu[open] .nav-trigger span:nth-of-type(2) {
+  opacity: 0;
+}
+wod-menu[open] .nav-trigger span:last-of-type {
+  bottom: -1px;
+  transform: rotate(-45deg);
+}
+wod-menu {
+  display: block;
+  position: relative;
 }
 .menu {
   position: fixed;
@@ -368,7 +203,7 @@ table {
   position: relative;
 }
 .menu-ctr:before {
-  background: rgba(27, 6, 23, 0.9);
+  background: rgba(41, 50, 65, 0.9);
   transition: all .5s;
   display: none;
   content: "";
@@ -378,16 +213,12 @@ table {
   z-index: 1;
   top: 0;
   left: 0;
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
 }
-.menu-ctr.is-navopen:before {
+.menu-ctr[open]:before {
   display: block;
 }
 .menu__title {
-  color: #8D615B;
+  color: #ee6c4d;
   text-transform: uppercase;
   font-size: 11px;
   margin-bottom: 30px;
@@ -396,63 +227,14 @@ table {
 .menu__item {
   font-weight: bold;
   font-size: 55px;
-  font-family: "Raleway";
   text-transform: uppercase;
   padding: 20px 120px 20px 40px;
   transition: all 0.3s ease-out;
 }
-.homepage .menu__item.homepage-btn {
-  pointer-events: none;
-}
-.homepage .menu__item.homepage-btn .line-3 i {
-  width: 100%;
-  height: 100%;
-  transition: width 0.2s ease-out 0.2s;
-}
-.homepage .menu__item.homepage-btn .line-2 i {
-  width: 100%;
-  height: 100%;
-  transition: height 0.2s ease-out 0s;
-}
-.homepage .menu__item.homepage-btn a {
-  color: #CCA684;
-}
-.artists .menu__item.artists-btn {
-  pointer-events: none;
-}
-.artists .menu__item.artists-btn .line-3 i {
-  width: 100%;
-  height: 100%;
-  transition: width 0.2s ease-out 0.2s;
-}
-.artists .menu__item.artists-btn .line-2 i {
-  width: 100%;
-  height: 100%;
-  transition: height 0.2s ease-out 0s;
-}
-.artists .menu__item.artists-btn a {
-  color: #CCA684;
-}
-.who-we-are .menu__item.who-we-are-btn {
-  pointer-events: none;
-}
-.who-we-are .menu__item.who-we-are-btn .line-3 i {
-  width: 100%;
-  height: 100%;
-  transition: width 0.2s ease-out 0.2s;
-}
-.who-we-are .menu__item.who-we-are-btn .line-2 i {
-  width: 100%;
-  height: 100%;
-  transition: height 0.2s ease-out 0s;
-}
-.who-we-are .menu__item.who-we-are-btn a {
-  color: #CCA684;
-}
 .menu__item .line-3 i {
   left: 0;
   transition: width 0.2s ease-out 0s;
-  background: #CCA684;
+  background: blue;
 }
 .menu__item .line-2 {
   left: 0;
@@ -461,7 +243,7 @@ table {
 .menu__item .line-2 i {
   left: 0;
   transition: height 0.2s ease-out 0.2s;
-  background: #CCA684;
+  background: blue;
 }
 .menu__item:hover .line-3 i {
   width: 100%;
@@ -474,71 +256,17 @@ table {
   transition: height 0.2s ease-out 0s;
 }
 .menu__item:hover a {
-  color: #CCA684;
+  color: blue;
 }
 .menu__item a {
   line-height: 45px;
   display: block;
-  color: #8D615B;
+  color: gray;
   transition: color 0.3s ease-out;
 }
-.is-navopen .menu {
+wod-menu[open] .menu {
   transform: translateX(0);
   transition: all 400ms ease-out 0s;
-}
-.nav-trigger {
-  display: block;
-  position: fixed;
-  right: 0;
-  top: 0;
-  padding: 20px 21px;
-  z-index: 99;
-  background: #1B0617;
-  cursor: pointer;
-  transition: all 0.5s ease-out;
-}
-.nav-trigger:hover {
-  background: #422030;
-}
-.nav-trigger__elements {
-  display: block;
-  position: relative;
-  width: 18px;
-  height: 14px;
-  margin-left: 1px;
-}
-.nav-trigger__elements span {
-  width: 18px;
-  height: 2px;
-  position: absolute;
-  transform-origin: 0 50%;
-  transition-duration: 0.3s;
-  background: #CCA684;
-}
-.nav-trigger__elements span:nth-of-type(1) {
-  top: 0;
-  left: 0px;
-}
-.nav-trigger__elements span:nth-of-type(2) {
-  top: 6px;
-  opacity: 1;
-}
-.nav-trigger__elements span:last-of-type {
-  bottom: 0;
-  left: 0;
-}
-.is-navopen .nav-trigger {
-  background: transparent;
-}
-.is-navopen .nav-trigger span:nth-of-type(1) {
-  transform: rotate(45deg);
-}
-.is-navopen .nav-trigger span:nth-of-type(2) {
-  opacity: 0;
-}
-.is-navopen .nav-trigger span:last-of-type {
-  bottom: -1px;
-  transform: rotate(-45deg);
 }
 @media (max-width: 767px) {
   .menu {
@@ -549,798 +277,21 @@ table {
     padding: 10px 0 10px 40px;
   }
 }
-.homepage__visual {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: calc(100vh - 155px);
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-}
-.homepage__visual::after {
-  content: "";
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.8) 100%);
-  display: block;
-  width: 100%;
-  height: 200px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 0;
-}
-.homepage__visual .content-wrapper {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-}
-.homepage .visual__text {
-  color: white;
-  padding: 50px 0;
-  font-size: 52px;
-  font-family: "Raleway";
-}
-.homepage .posts-ctr {
-  padding: 50px 0;
-  background: rgba(204, 166, 132, 0.1);
-  margin: 50px 0 0;
-}
-.homepage .posts-ctr .btn-ctr {
-  text-align: center;
-  margin: 20px 0;
-}
-.homepage .last-artists {
-  display: flex;
-  justify-content: space-around;
-}
-.homepage .last-artists-ctr {
-  margin-top: 50px;
-}
-.homepage .last-artists-ctr .btn-ctr {
-  text-align: center;
-  margin-top: 20px;
-}
-.homepage .last-artists-title {
-  font-family: Raleway;
-  font-weight: 800;
-  margin-bottom: 20px;
-  color: #422030;
-  text-transform: uppercase;
-}
-@media (max-width: 767px) {
-  .homepage .visual__text {
-    padding: 35px 0;
-    font-size: 40px;
-  }
-  .homepage .last-artists {
-    display: block;
-  }
-  .homepage .last-artists-ctr {
-    margin-top: 30px;
-  }
-  .homepage .posts-ctr {
-    padding: 30px 0;
-    margin: 30px 0 0;
-  }
-}
-.post {
-  margin: 0;
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
-}
-.posts-ctr .visual__text {
-  color: white;
-  padding: 50px 0;
-  font-size: 52px;
-  font-family: "Raleway";
-}
-.posts-ctr .posts__wrapper {
-  margin-top: 50px;
-}
-.post__cnt {
-  position: relative;
-  font-size: 0;
-}
-.post-image-zoomed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  visibility: hidden;
-  z-index: 10;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-.post-image-zoomed .js-thumb-ctr {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-.post-image-zoomed__text-panel {
-  position: relative;
-  color: #8D615B;
-  z-index: 2;
-  width: 50%;
-  line-height: 1.4;
-  padding: 0 40px 40px;
-  font-size: 18px;
-  text-align: left;
-  height: calc(100vh - 110px);
-  overflow: auto;
-  margin-top: 90px;
-}
-.posts {
-  column-count: 3;
-  column-gap: 0;
-  font-size: 0;
-}
-.post:hover .post__image {
-  transform: scale(1.02);
-  filter: saturate(1);
-}
-.post:hover .post__text {
-  transform: translateY(0);
-}
-.post__image {
-  /* Just in case there are inline attributes */
-  width: 100%;
-  transition: all 0.5s ease-out;
-  display: block;
-  height: auto;
-  backface-visibility: hidden;
-  filter: saturate(0.6);
-}
-.post__image__wrapper {
-  overflow: hidden;
-  backface-visibility: hidden;
-  margin: 0;
-}
-.post__image__over {
-  z-index: 1;
-  position: absolute;
-  filter: inherit;
-  text-align: right;
-}
-.post__image__over img {
-  max-height: calc(100vh - 100px);
-  max-width: 100%;
-  width: auto;
-  display: inline-block;
-  text-align: right;
-}
-.zoom-completed .post__image__over {
-  position: relative;
-  top: 54px;
-}
-.post__text {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  color: white;
-  padding: 20px;
-  font-size: 16px;
-  line-height: 1.4;
-  flex-grow: 1;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  transform: translateY(100%);
-  transition: all 0.5s ease-out;
-}
-.post__text p {
-  max-height: 4.2em;
-  overflow: hidden;
-}
-.posts-title {
-  font-family: Raleway;
-  font-weight: 800;
-  margin-bottom: 20px;
-  color: #422030;
-  text-transform: uppercase;
-}
-@media (max-width: 767px) {
-  .posts {
-    column-count: 2;
-  }
-  .posts-title {
-    margin-bottom: 30px;
-  }
-  .post-image-zoomed.zoom-completed {
-    overflow: auto;
-  }
-  .post-image-zoomed .js-thumb-ctr {
-    display: block;
-  }
-  .post-image-zoomed__text-panel {
-    width: 100%;
-    padding: 0;
-  }
-  .zoom-completed .post__image__over {
-    position: relative;
-    top: 54px!important;
-  }
-  .post-image-zoomed__text-panel {
-    width: 100%;
-    padding: 0;
-    height: auto;
-  }
-}
-.footer {
-  background: #422030;
-  min-height: 200px;
-}
-.footer .buttons {
-  display: flex;
-  justify-content: flex-end;
-  padding: 20px 13px;
-  align-items: flex-end;
-}
-.footer .footer-button {
-  text-align: right;
-}
-.footer .footer-button.text-only {
-  margin: 0 10px;
-}
-.footer .footer-button a {
-  width: auto;
-  background: transparent;
-  color: #CCA684;
-  font-size: 12px;
-  transition: color 0.4s ease-out;
-}
-.footer .footer-button a:hover {
-  color: #8D615B;
-}
-.footer .footer-social-button a {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 30px;
-  height: 30px;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  background: #CCA684;
-  transition: background 0.5s ease-out;
-  margin: 0 10px;
-}
-.footer .footer-social-button a:hover {
-  background: #8D615B;
-}
-.footer .social-buttons {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0;
-}
-@media (max-width: 767px) {
-  .footer .buttons {
-    display: block;
-  }
-  .footer-button {
-    padding: 5px 0;
-  }
-  .footer .social-buttons {
-    margin-top: 10px;
-  }
-}
-.bar-c {
-  overflow: hidden;
-  height: 30px;
-  width: 40px;
-  margin: 0 auto;
-  position: relative;
-  cursor: pointer;
-}
-.bar {
-  height: 1px;
-  width: 3px;
-  display: inline-block;
-  background-color: #CCA684;
-  bottom: 0;
-  position: absolute;
-  -webkit-animation-duration: 500ms;
-  -webkit-animation-play-state: running;
-  -webkit-animation-direction: alternate;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-}
-.bar.noAnim {
-  -webkit-animation: none;
-  -webkit-animation-name: none;
-}
-.bar#bar-1 {
-  left: 0;
-  -webkit-animation-name: danceHeight1;
-  -webkit-animation-delay: 0ms;
-}
-.bar#bar-2 {
-  left: 6px;
-  -webkit-animation-name: danceHeight2;
-  -webkit-animation-delay: 300ms;
-}
-.bar#bar-3 {
-  left: 12px;
-  -webkit-animation-name: danceHeight3;
-  -webkit-animation-delay: 600ms;
-}
-.bar#bar-4 {
-  left: 18px;
-  -webkit-animation-name: danceHeight4;
-  -webkit-animation-delay: 900ms;
-}
-.bar#bar-5 {
-  left: 24px;
-  -webkit-animation-name: danceHeight5;
-  -webkit-animation-delay: 1200ms;
-}
-.bar#bar-6 {
-  left: 30px;
-  -webkit-animation-name: danceHeight6;
-  -webkit-animation-delay: 1500ms;
-}
-@-webkit-keyframes danceHeight1 {
-  from {
-    height: 1px;
-  }
-  to {
-    height: 22px;
-  }
-}
-@-webkit-keyframes danceHeight2 {
-  from {
-    height: 1px;
-  }
-  to {
-    height: 15px;
-  }
-}
-@-webkit-keyframes danceHeight3 {
-  from {
-    height: 1px;
-  }
-  to {
-    height: 30px;
-  }
-}
-@-webkit-keyframes danceHeight4 {
-  from {
-    height: 1px;
-  }
-  to {
-    height: 20px;
-  }
-}
-@-webkit-keyframes danceHeight5 {
-  from {
-    height: 1px;
-  }
-  to {
-    height: 15px;
-  }
-}
-@-webkit-keyframes danceHeight6 {
-  from {
-    height: 1px;
-  }
-  to {
-    height: 15px;
-  }
-}
-.header {
-  height: 54px;
-  position: fixed;
-  width: 100%;
-  z-index: 1;
-  background: #422030;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.header .text-ctr {
-  font-size: 20px;
-  color: #CCA684;
-  text-transform: uppercase;
-}
-.header .text-ctr h1 {
-  padding: 0 5px;
-  line-height: 17px;
-}
-@media (max-width: 767px) {
-  .header {
-    transition: transform 0.5s ease-out;
-    transform: translateY(0);
-  }
-  .header.closed {
-    transform: translateY(-90px);
-  }
-  .header .text-ctr {
-    font-size: 15px;
-  }
-}
-.artists {
-  display: flex;
-  justify-content: space-around;
-}
-.artists .content-wrapper {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-top: 50px;
-}
-.artists-ctr .last-artists-title {
-  font-family: Raleway;
-  font-weight: 800;
-  margin-bottom: 20px;
-  color: #422030;
-  text-transform: uppercase;
-}
-.artists-ctr .visual__text {
-  color: white;
-  padding: 50px 0;
-  font-size: 52px;
-  font-family: "Raleway";
-}
-.artist-thumb {
-  width: 31.5%;
-  display: flex;
-  flex-direction: column;
-  margin-right: 1%;
-  margin-bottom: 60px;
-}
-.artist-thumb:hover .artist__image {
-  filter: saturate(1);
-}
-.artist__name {
-  margin: 20px 0 10px;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 20px;
-  font-family: "Raleway";
-}
-.artist__image {
-  width: 100%;
-  height: 300px;
-  background-size: cover;
-  filter: saturate(0);
-  transition: all .5s;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.artist__description {
-  line-height: 1.2;
-}
-@media (max-width: 767px) {
-  .artist-thumb {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 60px;
-  }
-  .artist-thumb:last-child {
-    margin-bottom: 0;
-  }
-}
-.artist-detail__cover {
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: calc(100vh - 155px);
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-}
-.artist-detail__cover .content-wrapper {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-}
-.artist-detail__cover .visual__text {
-  color: white;
-  padding: 50px 0;
-  font-family: "Raleway";
-}
-.artist-detail__cover .visual__text h1 {
-  font-size: 52px;
-}
-.artist-detail__cover .visual__text p {
-  width: 50%;
-  padding-right: 10px;
-  margin-top: 8px;
-}
-.artist-detail__cover::after {
-  content: "";
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.8) 100%);
-  display: block;
-  width: 100%;
-  height: 200px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 0;
-}
-.artist-detail__label {
-  position: relative;
-  margin: 0 0 20px;
-  font-size: 14px;
-  line-height: 20px;
-  color: #1d1d1b;
-}
-.artist-detail__block {
-  padding-top: 110px;
-  padding-bottom: 130px;
-  text-align: center;
-}
-.artist-detail__block p {
-  font-size: 30px;
-  line-height: 40px;
-}
-.artist-detail__flex {
-  display: flex;
-  padding-top: 150px;
-}
-.artist-detail__profile-image {
-  width: 50%;
-  height: 400px;
-  background-size: cover;
-  background-position: top;
-}
-.artist-detail__info-block {
-  background: #422030;
-  padding: 90px;
-  min-height: 400px;
-  color: white;
-}
-.artist-detail__info-block p {
-  font-size: 16px;
-  text-align: left;
-  line-height: 1.7;
-}
-.artist-detail__info-blocks {
-  width: 50%;
-  transform: translateY(-150px);
-}
-.artist-detail__info-block--ligher {
-  background: #CCA684;
-}
-p.artist-detail__info-block__text-small {
-  font-size: 14px;
-  color: white;
-  line-height: 1.3;
-  text-align: left;
-}
-.artist-detail .textblock-title {
-  position: relative;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 26px;
-  color: #fff;
-  letter-spacing: .05em;
-  margin: 0 0 20px;
-  padding: 0 30px;
-}
-.artist-detail .textblock-title:before {
-  position: absolute;
-  content: '';
-  display: inline-block;
-  vertical-align: middle;
-  top: 12px;
-  width: 30px;
-  height: 1px;
-  margin-left: -44px;
-  background-color: #fff;
-}
-.artist-detail .membri {
-  margin-top: 20px;
-}
-.artist-detail .membro__thumb-image {
-  width: 32px;
-  height: 32px;
-  margin-right: 10px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.artist-detail .membro__thumb-image img {
-  width: 100%;
-}
-.artist-detail .membro__thumb {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-}
-.artist-detail .membro__thumb-name {
-  position: relative;
-  font-size: 16px;
-  line-height: 1;
-  margin-right: 5px;
-}
-.artist-detail .strumento p {
-  font-size: 12px;
-  line-height: 1;
-}
-.artist-detail .more-info {
-  margin-top: 30px;
-}
-.discografia {
-  display: flex;
-  justify-content: center;
-}
-.discografia-ctr {
-  padding: 50px 0;
-  background: rgba(204, 166, 132, 0.1);
-  margin: 50px 0 0;
-}
-.discografia .disco {
-  width: 300px;
-  margin-right: 45px;
-  overflow: hidden;
-  position: relative;
-}
-.discografia .disco img {
-  width: 100%;
-}
-.discografia .disco:hover .disco__text-ctr {
-  transform: translateY(0);
-}
-.discografia .disco__text-ctr {
-  width: 100%;
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  padding: 20px;
-  color: white;
-  background: rgba(0, 0, 0, 0.3);
-  transform: translateY(100%);
-  transition: all 0.4s ease-out;
-}
-.discografia .disco__title {
-  font-family: Raleway;
-  font-weight: bold;
-  margin: 15px 0 0;
-}
-.discografia .disco__date {
-  font-size: 12px;
-}
-@media all and (max-width: 767px) {
-  .artist-detail__cover .visual__text p {
-    width: 100%;
-    padding-right: 10px;
-    margin-top: 8px;
-  }
-}
-.disco__author {
-  color: white;
-  font-weight: bold;
-  margin-right: 5px;
-}
-.disco-image {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: calc(100vh - 155px);
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  background-color: #1B0617;
-  position: relative;
-}
-.disco-image .content-wrapper {
-  width: 100%;
-  color: white;
-  font-family: "Raleway";
-  position: relative;
-  z-index: 2;
-  padding: 50px 13px;
-}
-.disco-image__title {
-  font-size: 52px;
-}
-.disco-image:after {
-  content: "";
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.8) 100%);
-  display: block;
-  width: 100%;
-  height: 200px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 0;
-}
-.disco-text__wrapper {
-  padding: 50px 60px 30px 0;
-  line-height: 1.5;
-  color: #8D615B;
-}
-.disco-text-ctr {
-  width: 50%;
-}
-.disco-text-ctr iframe {
-  height: 360px;
-  width: 100%;
-}
-.disco-cover {
-  text-align: center;
-  font-size: 0;
-}
-.disco-cover img {
-  max-width: 100%;
-}
-.disco-info {
-  z-index: 1;
-  position: relative;
-}
-.disco-info__wrapper {
-  display: flex;
-}
-.disco-info__title {
-  font-family: Raleway;
-  font-weight: 800;
-  margin-bottom: 20px;
-  color: #422030;
-  line-height: 1;
-}
-.disco-info__by {
-  font-size: 12px;
-  margin-top: 10px;
-  text-align: right;
-}
-.disco-info__by a {
-  font-weight: bold;
-}
-.disco__right {
-  width: 50%;
-  margin-top: -250px;
-}
-.disco__right .tracks_embed {
-  line-height: 1.5;
-  color: #8D615B;
-}
-.disco__right .tracks_embed p {
-  margin: 30px 0;
-}
-@media screen and (max-width: 767px) {
-  .disco-text-ctr {
-    width: 100%;
-  }
-  .disco-text__wrapper {
-    padding: 50px 0px 30px;
-  }
-  .disco-info__wrapper {
-    flex-direction: column;
-  }
-  .disco__right {
-    width: 100%;
-    margin-top: 0;
-  }
-  .discografia {
-    flex-direction: column;
-  }
-  .discografia .disco {
-    width: 100%;
-    margin: 0 0 30px 0;
-  }
-}
+/* RGB */
 ::selection {
-  background: #CCA684;
+  background: #3d5a80;
   color: white;
 }
 body,
 html {
-  font-family: 'Open Sans', sans-serif;
+  background: #e0fbfc;
+  font-family: 'Source Sans Pro', sans-serif;
   width: 100%;
-  color: #1B0617;
+  color: #293241;
 }
 a {
   text-decoration: none;
-  color: #1B0617;
+  color: #293241;
 }
 strong {
   font-weight: bold;
@@ -1355,31 +306,5 @@ strong {
   position: relative;
   z-index: 0;
   padding-top: 54px;
-  background: #1B0617;
-}
-.barba-container {
-  background: white;
-}
-.empty {
-  height: calc(100vh - 54px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.empty p {
-  font-size: 55px;
-  text-transform: uppercase;
-  font-family: "Raleway";
-  font-weight: bold;
-}
-.retroshadow {
-  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.41);
-}
-@media (max-width: 767px) {
-  .content-wrapper {
-    padding: 0 7px;
-  }
-  .empty p {
-    font-size: 23px;
-  }
+  background: #e0fbfc;
 }
