@@ -1,17 +1,19 @@
-import PerfectScrollbar from "perfect-scrollbar";
-export default class MenuBoxes extends HTMLElement{
-    constructor(){
+export default class MenuBoxes extends HTMLElement {
+    constructor() {
         super();
+        this.wrapper = this.querySelector(".menu-boxes-wrapper")
+    }
+
+    connectedCallback() {
+        this.addEventListener("mousewheel", e => {
+            console.log(e);
+            this.scrollLeft -= e.wheelDelta
+        })
 
     }
-    connectedCallback(){
-        console.log("si",this.toLocaleString())
-        const ps = new PerfectScrollbar(this,{
-            wheelSpeed: 20,
-            suppressScrollY: true
-        });
-    }
-    disconnectedCallback(){
+
+
+    disconnectedCallback() {
         console.log("disconnect")
     }
 }

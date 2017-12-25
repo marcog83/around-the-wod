@@ -1,5 +1,3 @@
-
-
 export default class Menu extends HTMLElement {
     constructor(dispatcher) {
         super();
@@ -36,6 +34,7 @@ export default class Menu extends HTMLElement {
         console.log("attached foo element", this);
         this.querySelector("#nav-trigger__button").addEventListener("click", () => {
             this.open = !this.open;
+            document.body.classList.toggle("overflow-hidden");
         });
     }
 

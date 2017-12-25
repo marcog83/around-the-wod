@@ -46,9 +46,9 @@ export default class WodSlider extends HTMLElement {
             opts.freeMode = true;
             opts.freeModeSticky = true;
 
-            this.swiper.enableMousewheelControl();
+
         }else{
-            this.swiper.disableMousewheelControl();
+
         }
         Object.assign(this.swiper.params, opts);
         this.swiper.update();
@@ -64,7 +64,7 @@ export default class WodSlider extends HTMLElement {
                 , type: 'bullets'
             }
             , keyboard: true
-             , mousewheel: true
+
         });
 
         this.addEventListener("click", e => {

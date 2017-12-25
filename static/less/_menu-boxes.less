@@ -1,11 +1,13 @@
 @import (less) "../node_modules/perfect-scrollbar/css/perfect-scrollbar.css";
 .menu-boxes {
   &-ctr {
-    display: block;
+    display: flex;
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
     position: relative;
-    padding-bottom: 20px;
+    height: ~"calc(100vh - 54px)";
+
+    align-items: center;
   }
   &-wrapper {
     display: flex;
