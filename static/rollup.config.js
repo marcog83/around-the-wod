@@ -3,6 +3,7 @@
  */
 import resolve from 'rollup-plugin-node-resolve';
 import html from 'rollup-plugin-html';
+import commonjs from 'rollup-plugin-commonjs';
 export default {
     input: 'js/src/index.js',
     output: {
@@ -14,6 +15,7 @@ export default {
     name: 'atw'
     , plugins: [
         resolve()
+        ,commonjs()
         ,html({
             include: '**/*.{css,html}'
         })

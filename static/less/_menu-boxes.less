@@ -1,0 +1,30 @@
+@import (less) "../node_modules/perfect-scrollbar/css/perfect-scrollbar.css";
+.menu-boxes {
+  &-ctr {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 20px;
+  }
+  &-wrapper {
+    display: flex;
+    //overflow-x: auto;
+    width: 100%;
+    //overflow-y: hidden;
+  }
+}
+
+.menu-box {
+  width: 350px;
+  flex-grow: 1;
+  min-width: 350px;
+  &__title {
+    font-weight: bold;
+    font-size: 22px;
+  }
+  &__text {
+    font-weight: bold;
+    font-size: 16px;
+  }
+}

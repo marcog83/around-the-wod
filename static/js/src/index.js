@@ -1,7 +1,7 @@
 import {bootstrap, Loader, CustomElementHandler} from "robojs";
 
 import definitions from "./definitions";
-import "./libs/polyfills/prepend";
+
 
 bootstrap({
     definitions

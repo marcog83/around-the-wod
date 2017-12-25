@@ -1,8 +1,4 @@
-// import template from "./template.html";
-// import css from "./style.css";
-// import makeTemplate from "../../libs/make-template";
-//
-// const tmpl = makeTemplate(template, css);
+
 
 export default class Menu extends HTMLElement {
     constructor(dispatcher) {
@@ -23,7 +19,7 @@ export default class Menu extends HTMLElement {
         } else {
             this.removeAttribute('open');
         }
-        // this.toggleDrawer();
+
     }
 
     static get observedAttributes() {

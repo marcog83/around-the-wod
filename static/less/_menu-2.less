@@ -1,0 +1,150 @@
+.nav-trigger {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 20px 21px;
+  z-index: 99;
+  background: #3d5a80;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+.nav-trigger:hover {
+  background: #293241;
+}
+.nav-trigger__button {
+  display: block;
+  position: relative;
+  width: 18px;
+  height: 14px;
+  margin-left: 1px;
+}
+.nav-trigger__button span {
+  width: 18px;
+  height: 2px;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition-duration: 0.3s;
+  background: #ee6c4d;
+}
+.nav-trigger__button span:nth-of-type(1) {
+  top: 0;
+  left: 0px;
+}
+.nav-trigger__button span:nth-of-type(2) {
+  top: 6px;
+  opacity: 1;
+}
+.nav-trigger__button span:last-of-type {
+  bottom: 0;
+  left: 0;
+}
+wod-menu[open] .nav-trigger {
+  background: transparent;
+}
+wod-menu[open] .nav-trigger span:nth-of-type(1) {
+  transform: rotate(45deg);
+}
+wod-menu[open] .nav-trigger span:nth-of-type(2) {
+  opacity: 0;
+}
+wod-menu[open] .nav-trigger span:last-of-type {
+  bottom: -1px;
+  transform: rotate(-45deg);
+}
+wod-menu {
+  display: block;
+  position: relative;
+}
+.menu {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  padding: 40px 20px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 300ms ease-out 0s;
+  transform: translateX(100%);
+}
+.menu-ctr {
+  position: relative;
+}
+.menu-ctr:before {
+  background: rgba(41, 50, 65, 0.9);
+  transition: all .5s;
+  display: none;
+  content: "";
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+.menu-ctr[open]:before {
+  display: block;
+}
+.menu__title {
+  color: #ee6c4d;
+  text-transform: uppercase;
+  font-size: 11px;
+  margin-bottom: 30px;
+  padding: 0 40px;
+}
+.menu__item {
+  font-weight: bold;
+  font-size: 55px;
+  text-transform: uppercase;
+  padding: 20px 120px 20px 40px;
+  transition: all 0.3s ease-out;
+}
+.menu__item .line-3 i {
+  left: 0;
+  transition: width 0.2s ease-out 0s;
+  background: blue;
+}
+.menu__item .line-2 {
+  left: 0;
+  right: inherit;
+}
+.menu__item .line-2 i {
+  left: 0;
+  transition: height 0.2s ease-out 0.2s;
+  background: blue;
+}
+.menu__item:hover .line-3 i {
+  width: 100%;
+  height: 100%;
+  transition: width 0.2s ease-out 0.2s;
+}
+.menu__item:hover .line-2 i {
+  width: 100%;
+  height: 100%;
+  transition: height 0.2s ease-out 0s;
+}
+.menu__item:hover a {
+  color: blue;
+}
+.menu__item a {
+  line-height: 45px;
+  display: block;
+  color: gray;
+  transition: color 0.3s ease-out;
+}
+wod-menu[open] .menu {
+  transform: translateX(0);
+  transition: all 400ms ease-out 0s;
+}
+@media (max-width: 767px) {
+  .menu {
+    width: 100%;
+  }
+  .menu__item {
+    font-size: 24px;
+    padding: 10px 0 10px 40px;
+  }
+}

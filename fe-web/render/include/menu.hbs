@@ -6,33 +6,42 @@
             <span></span>
         </div>
     </div>
-    <nav class="menu">
-        <h2 class="menu__title">stonebridge studio</h2>
-        <ul>
-            <li  class="menu__item homepage-btn line-effect">
-                <div class="line-2"><i></i></div>
+    <div class="menu">
 
-                <div class="line-3"><i></i></div>
+        <ul class="menu__upper">
+            <li  class="menu__item ">
+
                 <a href="/">
-                    homepage
+                    ATW
                 </a>
             </li>
-            <li class="menu__item artists-btn line-effect">
-                <div class="line-2"><i></i></div>
+            <li class="menu__item">
 
-                <div class="line-3"><i></i></div>
                 <a href="/gruppi">
-                    artists
+                    ATF
                 </a>
             </li>
-            <li class="menu__item who-we-are-btn line-effect ">
-                <div class="line-2"><i></i></div>
-
-                <div class="line-3"><i></i></div>
+            <li class="menu__item">
                 <a href="/who-we-are">
-                    who we are
+                    VOLUNTEER
+                </a>
+            </li>
+            <li class="menu__item">
+                <a href="/who-we-are">
+                    CHI SIAMO
                 </a>
             </li>
         </ul>
-    </nav>
+        <menu-boxes class="menu-boxes-ctr">
+            <div class="menu-boxes-wrapper">
+                {{> menu-box }}
+                {{> menu-box }}
+                {{> menu-box }}
+                {{> menu-box }}
+                {{> menu-box }}
+                {{> menu-box }}
+            </div>
+
+        </menu-boxes>
+    </div>
 </wod-menu>
