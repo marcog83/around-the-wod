@@ -34,12 +34,10 @@
         </ul>
         <menu-boxes class="menu-boxes-ctr">
             <div class="menu-boxes-wrapper">
-                {{> menu-box }}
-                {{> menu-box }}
-                {{> menu-box }}
-                {{> menu-box }}
-                {{> menu-box }}
-                {{> menu-box }}
+                {{#each menuBoxes}}
+                    {{> menu-box this}}
+                {{/each}}
+
             </div>
 
         </menu-boxes>

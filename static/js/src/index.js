@@ -1,3 +1,4 @@
+import "@webcomponents/custom-elements";
 import {bootstrap, Loader, CustomElementHandler} from "robojs";
 
 import definitions from "./definitions";

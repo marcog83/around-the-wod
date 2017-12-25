@@ -63,6 +63,7 @@ export default class WodSlider extends HTMLElement {
                 el: this.pagination
                 , type: 'bullets'
             }
+            ,slideToClickedSlide:true
             , keyboard: true
 
         });
