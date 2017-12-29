@@ -2,16 +2,30 @@
 
     <div class="page-thumbnail__name">
         <p>{{name.value}}</p>
+        <div class="page-thumbnail__actions">
+            <a title="Modifica il Template della Pagina"
+               href="/cms/pages/{{_id}}/{{templateEntity.value.entityId}}{{#if
+                       recordId.value}}/{{recordId.value}}{{/if}}" >
+                <span class="typcn typcn-edit"></span>
+            </a>
+            <a title="Modifica la Pagina"
+               href="/cms/contents/page/{{_id}}" >
+                <span class="typcn typcn-edit"></span>
+            </a>
+        </div>
     </div>
-    <div class="page-thumbnail__scegli-template">
-        {{> select-field templateEntity}}
-        <a href="/cms/pages/{{_id}}/{{templateEntity.value.entityId}}{{#if recordId.value}}/{{recordId.value}}{{/if}}">
-            modifica contenuto
-        </a>
+
+    <div class="page-thumbnail__children">
+        {{#if children}}
+
+            {{#each children}}
+                {{> page-thumbnail this}}
+
+
+
+            {{/each}}
+        {{/if}}
+
     </div>
-    {{#if children.value}}
-        {{#each children.value}}
-            <a href="/cms/pages/{{this._id}}/{{toEntity.relationTo}}/{{this.value._id}}" target="_blank">{{this.value.name}}</a>
-        {{/each}}
-    {{/if}}
+
 </div>

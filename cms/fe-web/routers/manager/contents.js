@@ -76,7 +76,7 @@ module.exports = class ContentsManager {
             }else{
                 const seo = SeoPlugin.createNew(saveObject, entityId, recordId);
 
-                return SeoPlugin.save(seo);
+                return SeoPlugin.save(seo).then(_=>recordId)
             }
 
         });
@@ -105,7 +105,7 @@ module.exports = class ContentsManager {
                 return recordId;
             }else{
                 const seo = SeoPlugin.createNew(saveObject, entityId, recordId);
-                return SeoPlugin.update(recordId, seo);
+                return SeoPlugin.update(recordId, seo).then(_=>recordId)
             }
 
         });

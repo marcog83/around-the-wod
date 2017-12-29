@@ -33,9 +33,9 @@
         <section class="seo-ctr" data-mediator="accordion">
             <h2 class="seo__title" data-accordion-button>Configurazione SEO</h2>
             <div class="fields seo-fields hidden" data-accordion-expand>
-                {{#seo.fields}}
-                    {{> field-builder seo.fields}}
-                {{/seo.fields}}
+                {{#each seo.fields}}
+                    {{> field-builder this}}
+                {{/each}}
             </div>
         </section>
     {{/if}}

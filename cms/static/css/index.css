@@ -1845,7 +1845,18 @@ a.entity__action--btn.record__item {
 .pages {
   padding-top: 90px;
 }
-.page-thumbnail__scegli-template {
+.page-thumbnail__name {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid silver;
+}
+.page-thumbnail__children {
+  padding-left: 20px;
+}
+.page-thumbnail__child {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid silver;
 }
