@@ -1,16 +1,15 @@
 /**
  * Created by mgobbi on 03/08/2017.
  */
-const Entity = require("../core/Entity");
-// const Dischi = require("./Dischi");
-// const MembriGruppo = require("./MembriGruppo");
-const RelationEntity = require("../core/RelationEntity");
-const {TextSchema, HtmlSchema, DocumentSchema,NumberSchema, LinkSchema, RepeatableSchema, RelationSchema} = require("../core/schemas");
-class Gruppi extends Entity {
+const Entity = require("../../core/Entity");
+
+const RelationEntity = require("../../core/RelationEntity");
+const {TextSchema, HtmlSchema, DocumentSchema,NumberSchema, LinkSchema, RepeatableSchema, RelationSchema} = require("../../core/schemas");
+class Modello extends Entity {
     constructor() {
-        super("gruppi");
+        super("modello");
         this._schema = {
-             name: new TextSchema({
+            name: new TextSchema({
                 label: "Nome"
                 , name: "name"
             })
@@ -93,4 +92,4 @@ class Gruppi extends Entity {
 
 }
 ;
-module.exports = Gruppi;
+module.exports = Modello;

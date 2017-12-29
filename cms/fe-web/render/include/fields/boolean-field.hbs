@@ -2,8 +2,8 @@
     <fieldset>
         {{#if label}}<legend>{{label}}</legend>{{/if}}
         <label>true</label>
-        <input type="radio" name="{{name}}" value="true" autocomplete="off">
+        <input type="radio" {{#ifCond value '==' true}}checked{{/ifCond}} name="{{name}}" value="true" autocomplete="off">
         <label>false</label>
-        <input type="radio" name="{{name}}" value="false" autocomplete="off">
+        <input type="radio" {{#ifCond value '==' false}}checked{{/ifCond}} name="{{name}}" value="false" autocomplete="off">
     </fieldset>
 </div>

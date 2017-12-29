@@ -1,0 +1,17 @@
+<div class="page-thumbnail">
+
+    <div class="page-thumbnail__name">
+        <p>{{name.value}}</p>
+    </div>
+    <div class="page-thumbnail__scegli-template">
+        {{> select-field templateEntity}}
+        <a href="/cms/pages/{{_id}}/{{templateEntity.value.entityId}}{{#if recordId.value}}/{{recordId.value}}{{/if}}">
+            modifica contenuto
+        </a>
+    </div>
+    {{#if children.value}}
+        {{#each children.value}}
+            <a href="/cms/pages/{{this._id}}/{{toEntity.relationTo}}/{{this.value._id}}" target="_blank">{{this.value.name}}</a>
+        {{/each}}
+    {{/if}}
+</div>

@@ -1,0 +1,14 @@
+<header class="contents__header">
+    <h2 class="contents-title">Pages</h2>
+
+</header>
+<div class="pages">
+    <div class="buttons-ctr">
+        <a href="/cms/contents/page">ADD NEW PAGE</a>
+    </div>
+    <div class="records">
+        {{#each records}}
+            {{> page-thumbnail this}}
+        {{/each}}
+    </div>
+</div>

@@ -35,7 +35,15 @@
         <menu-boxes class="menu-boxes-ctr">
             <div class="menu-boxes-wrapper">
                 {{#each menuBoxes}}
-                    {{> menu-box this}}
+                    {{#switch type}}
+                        {{#case "menu-box" break=true}}
+                            {{> menu-box this}}
+                        {{/case}}
+                        {{#case "thumbnail" break=true}}
+                            {{> thumbnail this}}
+                        {{/case}}
+                    {{/switch}}
+
                 {{/each}}
 
             </div>

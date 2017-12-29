@@ -1,11 +1,11 @@
 <form name="{{recordId}}" method="post"
-      action="/cms/contents/save/{{entityId}}{{#if recordId}}/{{recordId}}{{/if}}"
+      action="/cms/pages/save/{{pageId}}/{{entityId}}{{#if recordId}}/{{recordId}}{{/if}}"
 
       enctype="multipart/form-data">
     <header class="contents__header">
         <h2 class="contents-title">{{name}}</h2>
         <div class="actions">
-            <a class="back-btn" href="/cms/contents" title="torna ai contenuti">
+            <a class="back-btn" href="/cms/pages" title="torna ai contenuti">
                 <span class="typcn typcn-backspace">Back</span>
 
             </a>
@@ -29,15 +29,14 @@
 
         </div>
     </section>
-    {{#if seo.fields}}
-        <section class="seo-ctr" data-mediator="accordion">
-            <h2 class="seo__title" data-accordion-button>Configurazione SEO</h2>
-            <div class="fields seo-fields hidden" data-accordion-expand>
-                {{#seo.fields}}
-                    {{> field-builder seo.fields}}
-                {{/seo.fields}}
-            </div>
-        </section>
-    {{/if}}
+
+    <section class="seo-ctr" data-mediator="accordion">
+        <h2 class="seo__title" data-accordion-button>Configurazione SEO</h2>
+        <div class="fields seo-fields hidden" data-accordion-expand>
+            {{#seo.fields}}
+                {{> field-builder seo.fields}}
+            {{/seo.fields}}
+        </div>
+    </section>
 
 </form>

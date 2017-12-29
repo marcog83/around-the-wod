@@ -63,7 +63,10 @@ module.exports = {
             if (typeof recordId === "string") {
 
                 return collection.findOneAndUpdate({_id: ObjectId(recordId)}, {$set: record}, {upsert: true});
-            } else {
+            }else if(recordId instanceof ObjectId){
+                return collection.insertOne(record);
+            }
+            else {
                 record._id = recordId;
                 return collection.insertOne(record);
             }

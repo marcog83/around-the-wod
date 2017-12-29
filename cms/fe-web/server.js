@@ -9,6 +9,7 @@ const handlebars = require('./render/handlebars-config');
 const Auth = require("./routers/Auth");
 const index = require("./routers/index");
 const contents = require("./routers/contents");
+const pages = require("./routers/pages");
 
 const app = express();
 app.use(bodyParser.json()); // for parsing application/json
@@ -22,6 +23,7 @@ app.use('/static', express.static(__dirname + '/../static', {
 
 app.use('/',Auth.middleware(), index);
 app.use('/contents',Auth.middleware(), contents);
+app.use('/pages',Auth.middleware(), pages);
 
 
 //

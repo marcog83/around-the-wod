@@ -1,6 +1,7 @@
 const fs = require('fs');
 
 const jsonHelper = require('../../cms/fe-web/handlebars-engine/json-helper');
+const switchHelper = require('../../cms/fe-web/handlebars-engine/switch-helper');
 var glob = require("glob");
 var path = require("path");
 var Handlebars = require("handlebars");
@@ -17,6 +18,7 @@ const BODY_DIR = `fe-web/render/body/`;
 
 var FrontendHandlebars = Handlebars.create();
 jsonHelper(FrontendHandlebars);
+switchHelper(FrontendHandlebars);
 function getFile(filePath) {
     return new Promise(function (resolve, reject) {
         fs.readFile(filePath, function (err, content) {

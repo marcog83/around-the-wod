@@ -4,7 +4,7 @@
         <select name="{{name}}" autocomplete="off">
             <option value="" disabled>select an option</option>
             {{#each options}}
-                <option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+                <option value="{{value}}" {{#ifCond ../value._id '==' value}}selected{{/ifCond}}>{{label}}</option>
             {{/each}}
         </select>
     </fieldset>

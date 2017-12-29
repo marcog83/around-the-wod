@@ -2,9 +2,12 @@
  * Created by mgobbi on 03/08/2017.
  */
 const dbManager = require("./db-manager");
+const {ObjectId} = require("mongodb");
+
 function isObject(x) {
     return Object.prototype.toString.call(x) === '[object Object]';
 };
+
 function isNumeric(obj) {
 
 
@@ -15,11 +18,13 @@ function isNumeric(obj) {
     // subtraction forces infinities to NaN
     return !isNaN(obj - parseFloat(obj));
 }
+
 function isArray(val) {
     return (val != null &&
-    val.length >= 0 &&
-    Object.prototype.toString.call(val) === '[object Array]');
+        val.length >= 0 &&
+        Object.prototype.toString.call(val) === '[object Array]');
 };
+
 function _castValue(value) {
     if (value === "true") {
         value = true;
@@ -30,6 +35,7 @@ function _castValue(value) {
     }
     return value;
 }
+
 function _excludeEmptyFields(obj = {}) {
     Object.keys(obj).forEach(function (key) {
         if (obj[key] && isObject(obj[key])) {
@@ -37,7 +43,7 @@ function _excludeEmptyFields(obj = {}) {
         }
         else if (obj[key] && isArray(obj[key])) {
             obj[key] = obj[key].filter(v => v);
-        } else if (obj[key] == null || obj[key] == "") {
+        } else if (obj[key] === undefined || obj[key] === null || obj[key] === "") {
             delete obj[key]
         } else {
             obj[key] = _castValue(obj[key])
@@ -45,6 +51,7 @@ function _excludeEmptyFields(obj = {}) {
     });
     return obj;
 };
+
 function parseSchema(schema, method, initialValue, values, recordId = undefined) {
     const promises = Object.keys(schema).map(key => {
         return schema[key][method](values[key], recordId).then(value => {
@@ -62,6 +69,7 @@ function parseSchema(schema, method, initialValue, values, recordId = undefined)
 
     });
 }
+
 class Entity {
     constructor(id) {
         this.id = id;
@@ -73,7 +81,7 @@ class Entity {
         return dbManager.findAll(this.id, limit)
 
             .then(records => {
-                if (exclude_merge)return records;
+                if (exclude_merge) return records;
                 return Promise.all(records
                     .filter(r => r)
                     .map(this._mergeRecordSchema.bind(this)))
@@ -101,7 +109,7 @@ class Entity {
                 }
                 return this.schema();
             } else {
-                if (exclude_merge)return response;
+                if (exclude_merge) return response;
                 return this._mergeRecordSchema(response);
             }
 
@@ -110,8 +118,8 @@ class Entity {
 
     findById(recordId, exclude_merge = false) {
         return dbManager.findOne(this.id, recordId).then(response => {
-            if (exclude_merge)return response;
-            if (!response)return {};
+            if (exclude_merge) return response;
+            if (!response) return {};
             return this._mergeRecordSchema(response);
         })
     }
@@ -122,22 +130,26 @@ class Entity {
 
     save(body) {
         const _fieldsToSave = _excludeEmptyFields(body);
-
-        return parseSchema(this._schema, "save", {}, _fieldsToSave)
+        const recordId = new ObjectId()
+        return parseSchema(this._schema, "save", {}, _fieldsToSave, recordId.toString())
             .then(_normalizedValues => {
-                return dbManager.save(this.id, _normalizedValues);
+                return dbManager.save(this.id, _normalizedValues, recordId.toString());
             });
-
 
 
     }
 
-    update(recordId, body) {
-        const _fieldsToSave = _excludeEmptyFields(body);
-        return parseSchema(this._schema, "update", {}, _fieldsToSave, recordId)
-            .then(_normalizedValues => {
-                return dbManager.save(this.id, _normalizedValues, recordId);
-            });
+    update(recordId, body, ignoreSchema = false) {
+        if (ignoreSchema) {
+            return dbManager.save(this.id, body, recordId);
+        } else {
+            const _fieldsToSave = _excludeEmptyFields(body);
+            return parseSchema(this._schema, "update", {}, _fieldsToSave, recordId)
+                .then(_normalizedValues => {
+                    return dbManager.save(this.id, _normalizedValues, recordId);
+                });
+        }
+
 
     }
 

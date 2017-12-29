@@ -1,0 +1,33 @@
+.login-panel {
+  padding: 30px;
+  border: 1px silver solid;
+  &-ctr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  .submit-button-ctr {
+    text-align: center;
+  }
+  input {
+    border: 0;
+    &[type="submit"] {
+      margin: 20px 0;
+      background: darkolivegreen;
+      color: white;
+      text-transform: uppercase;
+      padding: 15px 30px;
+      font-size: 20px;
+      display: inline-block;
+      width: auto;
+      cursor: pointer;
+    }
+  }
+  input:-webkit-autofill,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    background-color: none;
+
+  }
+}

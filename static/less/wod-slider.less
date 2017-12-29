@@ -4,15 +4,19 @@ wod-slider {
   display: block;
   width: 100%;
   height: ~"calc(100vh - 54px)";
-  .swiper-container {
+  .wod-slider-zoom {
     height: 100%;
     overflow: inherit;
     transform: scale(1);
     transition: transform .3s ease-out;
 
   }
+  .swiper-container{
+    height: 100%;
+    overflow: inherit;
+  }
   &[zoomed] {
-    .swiper-container {
+    .wod-slider-zoom {
       transform: scale(.4);
     }
   }
@@ -32,4 +36,22 @@ wod-slider {
 
 .wod-slider-ctr {
   overflow: hidden;
+}
+.wod-slide{
+  &-cnt {
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__title {
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  &__cta {
+    margin-top: 30px;
+  }
 }

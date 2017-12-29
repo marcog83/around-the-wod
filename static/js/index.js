@@ -6011,9 +6011,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
           opts.spaceBetween = 10;
           opts.freeMode = true;
           opts.freeModeSticky = true;
-        } else {}
+          opts.freeModeMomentumRatio = .2;
+          // opts.freeModeMomentumVelocityRatio = .2;
+
+          // TweenMax.to(this.querySelector(".wod-slider-zoom"), .3, {scale: .6});
+        } else {
+            // TweenMax.to(this.querySelector(".wod-slider-zoom"), .3, {scale: 1});
+          }
         Object.assign(this.swiper.params, opts);
-        this.swiper.update();
+        // this.swiper.update();
       }
     }, {
       key: "connectedCallback",
@@ -6034,9 +6040,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
         this.addEventListener("click", function (e) {
           // if (this.zoomed) {
-          //     TweenMax.to(this.querySelector(".swiper-container"), .3, {scale: 1});
+          //
           // } else {
-          //     TweenMax.to(this.querySelector(".swiper-container"), .3, {scale: .6});
+          //
           // }
 
           _this8.zoomed = !_this8.zoomed;

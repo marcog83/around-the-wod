@@ -1,15 +1,20 @@
 <div class="field relation-field" data-mediator="relation-field">
-    {{#if label}}<legend>{{label}}</legend>{{/if}}
+    <fieldset>
+        {{#if label}}<legend>{{label}}</legend>{{/if}}
+<div>
 
-    <select name="{{name}}" class="js-select" autocomplete="off">
-        <option value="">select an option</option>
+        <select name="{{name}}" class="js-select" autocomplete="off">
+            <option value="">select an option</option>
 
-        {{#each options}}
+            {{#each options}}
 
-            <option value="{{value}}" {{#ifCond ../value._id '==' value}}selected{{/ifCond}}>{{label}}</option>
-        {{/each}}
-    </select>
-    <a href="javascript:void(0);" title="Vai al dettaglio" data-pattern-url="/cms/contents/{{toEntity.relationTo}}/" class="detail-btn js-detail-btn">
-        <span class="  typcn typcn-edit"></span>
-    </a>
+                <option value="{{value}}" {{#ifCond ../value._id '==' value}}selected{{/ifCond}}>{{label}}</option>
+            {{/each}}
+        </select>
+        <a href="javascript:void(0);" title="Vai al dettaglio" data-pattern-url="/cms/contents/{{toEntity.relationTo}}/" class="detail-btn js-detail-btn">
+            <span class="  typcn typcn-edit"></span>
+        </a>
+</div>
+    </fieldset>
+
 </div>

@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build-css": "lessc static/less/index.less > static/css/index.css ",
+    "build-cms-css": "lessc cms/static/less/index.less > cms/static/css/index.css ",
     "filerev": "node build-scripts/filerev.js",
     "watch-css": "catw -w 'static/less/**/*.less' -c 'npm run build-css'",
     "build-css-prod": "postcss  static/css/index.css --use autoprefixer --autoprefixer.browsers '> 5%' -o static/css/index.css && npm run filerev",

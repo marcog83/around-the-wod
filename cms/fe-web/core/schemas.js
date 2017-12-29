@@ -11,6 +11,7 @@ const DATE_SCHEMA = "date";
 const REPEATABLE_SCHEMA = "repeatable";
 const INVERSE_RELATION_SCHEMA = "inverse-relation";
 const RELATION_SCHEMA = "relation";
+const BOOLEAN_SCHEMA = "boolean";
 const dbManager = require("./db-manager");
 class Schema {
     constructor(name, label) {
@@ -40,6 +41,17 @@ class Schema {
         return Promise.resolve(value);
     }
 }
+exports.BooleanSchema=class BooleanSchema extends Schema {
+    constructor({name, label,readonly} = {}) {
+        super(name, label);
+        this.type = BOOLEAN_SCHEMA;
+        this.readonly = readonly;
+    }
+
+    clone() {
+        return new BooleanSchema(this);
+    }
+};
 exports.TextSchema = class TextSchema extends Schema {
     constructor({name, label,readonly} = {}) {
         super(name, label);
@@ -213,8 +225,8 @@ class RelationSchema extends Schema {
             })
     }
 
-    save(value) {
-        return this.toEntity.save(value);
+    save(value,recordId) {
+        return this.toEntity.updateOrSave(recordId, value);
     }
 
     update(value, recordId) {

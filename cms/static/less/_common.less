@@ -1,7 +1,9 @@
 @import (less) "typicons.css";
-body{
+
+body {
   overflow-y: scroll;
 }
+
 body, html {
   font-family: 'Roboto', sans-serif;
 
@@ -11,12 +13,15 @@ body, html {
   max-width: 1280px;
   margin: 0 auto;
 }
+
 .body-ctr {
   padding: 0 16px;
 }
+
 fieldset {
   background: lightcyan;
   padding: 10px;
+  width: 100%;
 }
 
 select,
@@ -104,7 +109,13 @@ textarea {
   display: flex;
   align-items: center;
   margin-right: 5px;
-
+  fieldset > div {
+    display: flex;
+    align-items: center;
+  }
+  select{
+    margin-right:10px;
+  }
   .detail-btn {
     display: inline-flex;
     align-items: center;

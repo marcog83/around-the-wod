@@ -17,6 +17,7 @@ switchHelper(CMSHandlebars);
 jsonHelper(CMSHandlebars);
 rawHelper(CMSHandlebars);
 ifCondHelper(CMSHandlebars);
+
 function getFile(filePath) {
     return new Promise(function (resolve, reject) {
         fs.readFile(filePath, function (err, content) {
@@ -27,6 +28,7 @@ function getFile(filePath) {
         })
     })
 };
+
 function registerIncludes() {
     return new Promise((resolve, reject) => {
         // options is optional
@@ -59,6 +61,7 @@ function registerIncludes() {
     })
 
 }
+
 function isObject(x) {
     return Object.prototype.toString.call(x) === '[object Object]';
 };
@@ -71,20 +74,33 @@ module.exports = function (options) {
         const page = (pages[key] && isObject(pages[key])) ? pages[key] : {};
         const includes = registerIncludes();
         const {layout = "index", body = key, data = key} = page;
-        if (!cache[key]) {
-            cache[key] = Promise.all([
-                getFile(`${LAYOUT_DIR}${layout}.hbs`)
-                , getFile(`${BODY_DIR}${body}.hbs`)
-            ]).then(([layout, body]) => {
-                const precompiled =CMSHandlebars.compile(layout)// Handlebars.precompile(layout);
-                return {
-                    template: precompiled//Handlebars.template((new Function('return ' + precompiled))())
-                    , body
-                }
-            });
+// no cache
+        // if (!cache[key]) {
+        //     cache[key] = Promise.all([
+        //         getFile(`${LAYOUT_DIR}${layout}.hbs`)
+        //         , getFile(`${BODY_DIR}${body}.hbs`)
+        //     ]).then(([layout, body]) => {
+        //         const precompiled =CMSHandlebars.compile(layout)// Handlebars.precompile(layout);
+        //         return {
+        //             template: precompiled//Handlebars.template((new Function('return ' + precompiled))())
+        //             , body
+        //         }
+        //     });
+        //
+        // }
+        const cacheKey = Promise.all([
+            getFile(`${LAYOUT_DIR}${layout}.hbs`)
+            , getFile(`${BODY_DIR}${body}.hbs`)
+        ]).then(([layout, body]) => {
+            const precompiled = CMSHandlebars.compile(layout)// Handlebars.precompile(layout);
+            return {
+                template: precompiled//Handlebars.template((new Function('return ' + precompiled))())
+                , body
+            }
+        });
 
-        }
-        includes.then(_ => cache[key]).then(({template, body}) => {
+        // includes.then(_ => cache[key]).then(({template, body}) => {
+        includes.then(_ => cacheKey).then(({template, body}) => {
             CMSHandlebars.registerPartial('body', body);
             const {data = {}} = options || {};
             data.__pagename__ = key;

@@ -1,1 +1,5 @@
-module.exports = { };
+module.exports = {
+    login: {
+        layout: "login-layout"
+    }
+};

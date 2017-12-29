@@ -45,13 +45,15 @@ export default class WodSlider extends HTMLElement {
             opts.spaceBetween = 10;
             opts.freeMode = true;
             opts.freeModeSticky = true;
+            opts.freeModeMomentumRatio = .2;
+            // opts.freeModeMomentumVelocityRatio = .2;
 
-
+            // TweenMax.to(this.querySelector(".wod-slider-zoom"), .3, {scale: .6});
         }else{
-
+            // TweenMax.to(this.querySelector(".wod-slider-zoom"), .3, {scale: 1});
         }
         Object.assign(this.swiper.params, opts);
-        this.swiper.update();
+        // this.swiper.update();
 
     }
 
@@ -70,9 +72,9 @@ export default class WodSlider extends HTMLElement {
 
         this.addEventListener("click", e => {
             // if (this.zoomed) {
-            //     TweenMax.to(this.querySelector(".swiper-container"), .3, {scale: 1});
+            //
             // } else {
-            //     TweenMax.to(this.querySelector(".swiper-container"), .3, {scale: .6});
+            //
             // }
 
             this.zoomed = !this.zoomed;
